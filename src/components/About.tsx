@@ -5,7 +5,7 @@ export const About = () => {
     {
       name: "Shaym",
       role: "Full Stack Developer",
-      image: "/public/images/Shaym.jpg",
+      image: "/dist/images/Shaym.jpg",
       linkedin: "https://linkedin.com/in/alexjohnson",
       github: "https://github.com/alexjohnson",
       instagram: "https://instagram.com/alexjohnson"
@@ -13,7 +13,7 @@ export const About = () => {
     {
       name: "Mohith",
       role: "Backend Developer",
-      image: "/public/images/Mohith.jpg",
+      image: "/dist/images/Bobby.jpg",
       linkedin: "https://linkedin.com/in/sarahchen",
       github: "https://github.com/sarahchen",
       instagram: "https://instagram.com/sarahchen"
@@ -21,7 +21,7 @@ export const About = () => {
     {
       name: "Bobby",
       role: "Backend Developer",
-      image: "/public/images/Bobby.jpg",
+      image: "/dist/images/Mohith.jpg",
       linkedin: "https://linkedin.com/in/davidrodriguez",
       github: "https://github.com/davidrodriguez",
       instagram: "https://instagram.com/davidrodriguez"
@@ -29,7 +29,7 @@ export const About = () => {
     {
       name: "Snathosh",
       role: "Full Stack Developer",
-      image: "/public/images/Santhosh.jpg",
+      image: "/dist/images/Santhosh.jpg",
       linkedin: "https://linkedin.com/in/emilyzhang",
       github: "https://github.com/emilyzhang",
       instagram: "https://instagram.com/emilyzhang"
