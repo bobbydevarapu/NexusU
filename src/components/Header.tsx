@@ -21,12 +21,12 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-primary/95 backdrop-blur-md border-b border-border">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-primary/80 backdrop-blur-lg border-b border-border/50 transition-all duration-300">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-2 animate-fade-in">
-              <div className="p-2 bg-primary rounded-lg shadow-soft">
+              <div className="p-2 bg-primary rounded-full shadow-lg hover:shadow-primary/30 transition-shadow duration-300">
                 <GraduationCap className="w-6 h-6 text-primary-foreground" />
               </div>
               <h1 className="text-2xl font-bold text-foreground">NexusU</h1>
@@ -34,29 +34,24 @@ export const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="text-foreground hover:text-primary transition-all duration-300 font-medium relative hover:shadow-lg hover:shadow-primary/20 px-3 py-2 rounded-lg hover:bg-white/10"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-foreground hover:text-primary transition-all duration-300 font-medium relative hover:shadow-lg hover:shadow-primary/20 px-3 py-2 rounded-lg hover:bg-white/10"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-foreground hover:text-primary transition-all duration-300 font-medium relative hover:shadow-lg hover:shadow-primary/20 px-3 py-2 rounded-lg hover:bg-white/10"
-              >
-                Contact
-              </button>
+              {["home", "about", "contact"].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="relative text-foreground font-medium px-4 py-2 rounded-full overflow-hidden group"
+                >
+                  <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-0 group-hover:scale-100 rounded-full origin-center"></span>
+                </button>
+              ))}
               <Button
                 onClick={() => setIsPortalOpen(true)}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg shadow-soft hover:shadow-hover transition-all duration-300"
+                className="relative bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-full shadow-lg hover:shadow-primary/30 transition-all duration-300 overflow-hidden group"
               >
-                Sign In
+                <span className="relative z-10">Sign In</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-0 group-hover:scale-100 rounded-full origin-center"></span>
               </Button>
             </nav>
 
@@ -71,31 +66,26 @@ export const Header = () => {
 
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
-            <nav className="md:hidden mt-4 pb-4 animate-fade-in">
+            <nav className="md:hidden mt-4 pb-4 animate-slide-in-down">
               <div className="flex flex-col space-y-4 items-end">
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="text-foreground hover:text-primary transition-all duration-300 font-medium text-right px-4 py-2 rounded-lg hover:bg-white/10 hover:shadow-lg hover:shadow-primary/20 hover:scale-105"
-                >
-                  Home
-                </button>
-                <button
-                  onClick={() => scrollToSection("about")}
-                  className="text-foreground hover:text-primary transition-all duration-300 font-medium text-right px-4 py-2 rounded-lg hover:bg-white/10 hover:shadow-lg hover:shadow-primary/20 hover:scale-105"
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="text-foreground hover:text-primary transition-all duration-300 font-medium text-right px-4 py-2 rounded-lg hover:bg-white/10 hover:shadow-lg hover:shadow-primary/20 hover:scale-105"
-                >
-                  Contact
-                </button>
+                {["home", "about", "contact"].map((section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="relative text-foreground font-medium px-4 py-2 rounded-full text-right overflow-hidden group"
+                  >
+                    <span className="relative z-10 group-hover:text-primary transition-colors duration-300">
+                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-0 group-hover:scale-100 rounded-full origin-center"></span>
+                  </button>
+                ))}
                 <Button
                   onClick={() => setIsPortalOpen(true)}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg shadow-soft hover:shadow-hover transition-all duration-300 w-fit hover:scale-105 hover:shadow-xl hover:shadow-primary/30"
+                  className="relative bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-full shadow-lg hover:shadow-primary/30 transition-all duration-300 w-fit overflow-hidden group"
                 >
-                  Sign In
+                  <span className="relative z-10">Sign In</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-0 group-hover:scale-100 rounded-full origin-center"></span>
                 </Button>
               </div>
             </nav>

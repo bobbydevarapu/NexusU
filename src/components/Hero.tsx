@@ -17,14 +17,14 @@ export const Hero = () => {
   }, []);
 
   const bubbles = Array.from({ length: 40 }, (_, i) => {
-    const size = Math.random() * 12 + 2; // Random size between 2-14px
-    const opacity = Math.random() * 0.6 + 0.1; // Random opacity between 0.1-0.7
+    const size = Math.random() * 12 + 2;
+    const opacity = Math.random() * 0.6 + 0.1;
     const floatDelay = Math.random() * 10;
     const pulseDelay = Math.random() * 5;
     const rotateSpeed = Math.random() * 20 + 10;
     const driftX = Math.random() * 200 - 100;
     const driftY = Math.random() * 200 - 100;
-    
+
     return (
       <div
         key={i}
@@ -78,13 +78,12 @@ export const Hero = () => {
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-primary overflow-hidden">
-        {/* Animated bubbles */}
         <div className="absolute inset-0 pointer-events-none">
           {bubbles}
         </div>
 
         <div className="container mx-auto px-4 py-20 text-center relative z-10">
-          <div className="max-w-4xl mx-auto animate-fade-in">
+          <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 animate-float">
               Innovation Discover
             </h1>
@@ -95,10 +94,13 @@ export const Hero = () => {
             
             <Button
               onClick={() => setIsWatchDemoOpen(true)}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl text-lg shadow-hover hover:shadow-soft transition-all duration-300 group"
+              className="relative bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-primary/30 transition-all duration-300 group overflow-hidden"
             >
-              <Play className="w-6 h-6 mr-2 group-hover:scale-110 transition-transform" />
-              Watch Demo
+              <span className="relative z-10">
+                <Play className="w-6 h-6 mr-2 inline-block group-hover:scale-110 transition-transform" />
+                Watch Demo
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-0 group-hover:scale-100 rounded-xl origin-center"></span>
             </Button>
           </div>
         </div>
